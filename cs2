@@ -1,0 +1,176 @@
+//meore-quantity
+
+class Program
+{
+    
+    static void Main()
+    {
+        //pirveli quantity
+        int quantity = 17;
+        string itemName = "Widget";
+
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine($"{itemName}, Index: {i}");
+        }
+        
+        //meore
+        Employee employee = new Employee("akaki", 50000); // Replace with actual values
+        employee.DisplayInfo();
+
+        /*Fruit apple = new Fruit(2.5, 1.5); // 2.5 kg of apples at $1.5 per kg
+        Electronics laptop = new Electronics(3, 800.0); // 3 laptops at $800 each
+
+        double fruitTotalPrice = apple.CalculateTotalPrice(apple._weightInKg, apple._priceOfOneKg);
+        double electronicsTotalPrice = laptop.CalculateTotalPrice(laptop._quantity, laptop._oneUnitPrice);
+
+        Console.WriteLine($"Total price of fruits: ${fruitTotalPrice}");
+        Console.WriteLine($"Total price of electronics: ${electronicsTotalPrice}"); */
+
+        //meotxe 
+        // Create objects of Sparrow and Pigeon classes
+        Sparrow sparrow = new Sparrow();
+        Pigeon pigeon = new Pigeon();
+
+        // Call the "MakeSound" method for each object and print the results
+        Console.WriteLine("Sparrow: " + sparrow.MakeSound());  // Output: Sparrow sounds: Chirp.
+        Console.WriteLine("Pigeon: " + pigeon.MakeSound());    // Output: Pigeon sounds: Coo
+
+        //mexute
+        // Create an instance of MyCollection for strings
+        MyCollection<string> stringCollection = new MyCollection<string>();
+
+        // Add some elements to the collection
+        stringCollection.AddItem("Apple");
+        stringCollection.AddItem("Banana");
+        stringCollection.AddItem("Cherry");
+
+        // Get and print an item at a specific index
+        int indexToRetrieve = 1;
+        try
+        {
+            string item = stringCollection.GetItem(indexToRetrieve);
+            Console.WriteLine($"Item at index {indexToRetrieve}: {item}");
+        }
+        catch (IndexOutOfRangeException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+
+    }
+}
+
+//meore class
+public class Employee
+{
+    private string _employeeName;
+    public int Salary { get; set; }
+
+    public Employee(string employeeName, int salary)
+    {
+        _employeeName = employeeName;
+        Salary = salary;
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Hi, I'm {_employeeName} and I earn {Salary}$ per year.");
+    }
+}
+
+//mesame
+
+/*public class Item
+{
+    protected double price { get; set; }
+
+    public double Price
+    {
+        get { return price; }
+    }
+}
+
+class Fruit : Item
+{
+    private double _weightInKg;
+    private double _priceOfOneKg;
+
+    public Fruit(double weightInKg, double priceOfOneKg)
+    {
+        this._weightInKg = weightInKg;
+        this._priceOfOneKg = priceOfOneKg;
+    }
+
+    public double CalculateTotalPrice(double weight, double pricePerKg)
+    {
+        return weight * pricePerKg;
+    }
+}
+
+class Electronics : Item
+{
+    private int _quantity;
+    private double _oneUnitPrice;
+
+    public Electronics(int quantity, double oneUnitPrice)
+    {
+        this._quantity = quantity;
+        this._oneUnitPrice = oneUnitPrice;
+    }
+
+    public double CalculateTotalPrice(int quantity, double oneUnitPrice)
+    {
+        return quantity * oneUnitPrice;
+    }
+}*/
+
+//meotxe class
+public abstract class Bird
+{
+    // Define an abstract method "MakeSound"
+    public abstract string MakeSound();
+}
+
+// Create a class "Sparrow" which inherits from "Bird"
+public class Sparrow : Bird
+{
+    // Implement the "MakeSound" method
+    public override string MakeSound()
+    {
+        return "Chirp.";
+    }
+}
+
+// Create a class "Pigeon" which inherits from "Bird"
+public class Pigeon : Bird
+{
+    // Implement the "MakeSound" method
+    public override string MakeSound()
+    {
+        return "Coo";
+    }
+}
+
+//mexute
+class MyCollection<T>
+{
+    private List<T> items = new List<T>();
+
+    public void AddItem(T item)
+    {
+        items.Add(item);
+    }
+
+    public T GetItem(int index)
+    {
+        if (index >= 0 && index < items.Count)
+        {
+            return items[index];
+        }
+        else
+        {
+            throw new IndexOutOfRangeException("Index is out of range.");
+        }
+    }
+}
